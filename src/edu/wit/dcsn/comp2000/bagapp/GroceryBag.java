@@ -98,7 +98,8 @@ public class GroceryBag
 	 */
 	public List<String> ParseGrocery() throws FileNotFoundException
 	{
-		List<String> a = new ArrayList<>();
+		//test
+		List<String> a = new ArrayList<>();//test
 		File f = new File("groceries.txt");
 		Scanner s = new Scanner(f);
 		while (s.hasNextLine())
