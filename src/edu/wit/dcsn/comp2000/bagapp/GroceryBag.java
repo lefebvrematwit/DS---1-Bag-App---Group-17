@@ -1,5 +1,11 @@
 package edu.wit.dcsn.comp2000.bagapp;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 import edu.wit.dcsn.comp2000.bagadt.BagInterface;
 import edu.wit.dcsn.comp2000.bagadt.ResizableArrayBag;
 
@@ -83,6 +89,30 @@ public class GroceryBag
 	public static GroceryBag createPaperBag() 
 	{
 		return new GroceryBag(PAPER_BAG_MAX);
+	}
+	/**
+	 * @author chanr1
+	 * @return
+	 * @throws FileNotFoundException
+	 * Method to move groceries.txt content to list. Splits every String in array and returns list
+	 */
+	public List<String> ParseGrocery() throws FileNotFoundException
+	{
+		List<String> a = new ArrayList<>();
+		File f = new File("groceries.txt");
+		Scanner s = new Scanner(f);
+		while (s.hasNextLine())
+		{
+			a.add((s.nextLine()));
+		}
+		for(String grocery: a)
+		{
+			 grocery.split("\t");
+		}
+		return a;
+		
+		
+		
 	}
 	
 }
