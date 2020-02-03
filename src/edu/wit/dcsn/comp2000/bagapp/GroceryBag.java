@@ -3,6 +3,7 @@ package edu.wit.dcsn.comp2000.bagapp;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -75,7 +76,7 @@ public class GroceryBag
 
 	/**
 	 * Method that returns a GroceryBag that has its capacity set at the max capacity a plastic bag can hold
-	 * @return GroceryBag object with a capacity of 17 (GroceryBag.PLASTI_BAG_MAX)
+	 * @return GroceryBag object with a capacity of 17 (GroceryBag.PLASTIC_BAG_MAX)
 	 */
 	public static GroceryBag createPlasticBag() 
 	{
@@ -83,7 +84,7 @@ public class GroceryBag
 	}
 	
 	/**
-	 * Method that returns a GroceryBag that has its capacity set at the max capacity a paper bag cam hold
+	 * Method that returns a GroceryBag that has its capacity set at the max capacity a paper bag can hold
 	 * @return GroceryBag object with a capacity of 39 (GroceryBag.PAPER_BAG_MAX)
 	 */
 	public static GroceryBag createPaperBag() 
@@ -98,19 +99,23 @@ public class GroceryBag
 	 */
 	public List<String> ParseGrocery() throws FileNotFoundException
 	{
-		//test
-		List<String> a = new ArrayList<>();//test
+		
+		List<String> a = new ArrayList<>();
+		List<String> b = new ArrayList<>();
 		File f = new File("groceries.txt");
 		Scanner s = new Scanner(f);
 		while (s.hasNextLine())
 		{
+			
 			a.add((s.nextLine()));
 		}
-		for(String grocery: a)
+		for(String grocery : a)
 		{
-			 grocery.split("\t");
+			b.addAll(Arrays.asList(grocery.split("/t")));
+			
 		}
-		return a;
+		s.close();
+		return b;
 		
 		
 		
