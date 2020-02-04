@@ -89,4 +89,14 @@ public class GroceryItem
 		return this.isPerishable();
 	}
 	
+	/**
+	 * Returns a String representing this GroceryItem object
+	 * @return string
+	 */
+	public String toString()
+	{
+		return String.format("name=%s, size=%s, weight=%s, texture=%s, elasticity=%s, breakable=%b, perishable=%b", 
+				this.name, this.size.toString(), this.weight, this.texture, this.elasticity, this.breakable, this.perishable);
+	}
+	
 }
