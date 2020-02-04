@@ -91,34 +91,6 @@ public class GroceryBag
 	{
 		return new GroceryBag(PAPER_BAG_MAX);
 	}
-	/**
-	 * @author chanr1
-	 * @return
-	 * @throws FileNotFoundException
-	 * Method to move groceries.txt content to list. Splits every String in array and returns list
-	 */
-	public List<String> ParseGrocery() throws FileNotFoundException
-	{
-		
-		List<String> a = new ArrayList<>();
-		List<String> b = new ArrayList<>();
-		File f = new File("groceries.txt");
-		Scanner s = new Scanner(f);
-		while (s.hasNextLine())
-		{
-			
-			a.add((s.nextLine()));
-		}
-		for(String grocery : a)
-		{
-			b.addAll(Arrays.asList(grocery.split("/t")));
-			
-		}
-		s.close();
-		return b;
-		
-		
-		
-	}
+	
 	
 }
