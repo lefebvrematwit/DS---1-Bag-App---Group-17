@@ -10,36 +10,53 @@ import java.util.Scanner;
 // Simulates a grocery trip
 public class GrocerySimulation 
 {
+	
+	public static List<GroceryItem> parseGroceries() throws FileNotFoundException 
+	{
+		// Create a list to store the grocery item objects parsed from the groceries.txt file
+		final List<GroceryItem> groceries = new ArrayList<>();
+		
+		// Create Scanner object to read the text file
+		final Scanner sc = new Scanner(new File("data/groceries.txt"));
+		while (sc.hasNextLine()) 
+		{
+			final String[] args = sc.nextLine().split("\t");
+			groceries.add(new GroceryItem(
+				args[0],
+				GroceryItemSize.interpretDescription(args[1]),
+				args[2],
+				args[3],
+				args[4],
+				args[5].equalsIgnoreCase("breakable"),
+				args[6].equalsIgnoreCase("perishable")
+			));
+		}
+		
+		// Close the Scanner and return the list of grocery items
+		sc.close();
+		return groceries;
+	}
+	
 	public static void main(String[] args) 
 	{
-		
-	}
-	public Object[] ParseGrocery() throws FileNotFoundException
-	{
-		
-		List<String> a = new ArrayList<>();//initialize arrayLists
-		List<String> b = new ArrayList<>();
-		
-		File f = new File("groceries.txt");
-		Scanner s = new Scanner(f);//read in from groceries.txt
-		
-		while (s.hasNextLine())//add groceries.txt line by line
+		// Load the GroceryItems from the groceries.txt file
+		final List<GroceryItem> groceries;
+		try 
 		{
-			
-			a.add((s.nextLine()));
+			groceries = GrocerySimulation.parseGroceries();
+		} catch (FileNotFoundException e) 
+		{
+			System.out.println("FATAL ERROR: UNABLE TO READ GROCERIES.TXT FILE");
+			e.printStackTrace();
+			return;
 		}
-		
-		for(String grocery : a)//split 
+	
+		// Test to ensure that the objects loaded correctly, should be removed when Brian writes his code
+		for (GroceryItem item : groceries) 
 		{
-			b.addAll(Arrays.asList(grocery.split("/t")));
+			System.out.println(item.toString());
 			
 		}
-		
-		Object[] groceries = b.toArray();
-		s.close();
-		return groceries;
-		
-		
-		
 	}
+
 }
