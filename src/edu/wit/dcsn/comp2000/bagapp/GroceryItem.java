@@ -1,7 +1,7 @@
 package edu.wit.dcsn.comp2000.bagapp;
 
 /**
- * 
+ * Class that represents an item that you would find in a store based off the groceries.txt file and each items attributes
  * @author Matt Lefebvre
  */
 public class GroceryItem 
@@ -37,7 +37,7 @@ public class GroceryItem
 
 	/**
 	 * Getter method for the GroceryItem's name
-	 * @return name
+	 * @return String name
 	 */
 	public String getName() 
 	{
@@ -46,7 +46,7 @@ public class GroceryItem
 
 	/**
 	 * Getter method for the GroceryItem's size 
-	 * @return size
+	 * @return GroceryItemSize size
 	 */
 	public GroceryItemSize getSize()
 	{
@@ -55,7 +55,7 @@ public class GroceryItem
 	
 	/**
 	 * Getter method for the GroceryItem's weight
-	 * @return weight
+	 * @return String weight
 	 */
 	public String getWeight()
 	{
@@ -63,8 +63,17 @@ public class GroceryItem
 	}
 	
 	/**
+	 * Getter method for the GroceryItem's texture
+	 * @return String texture
+	 */
+	public String getTexture()
+	{
+		return this.texture;
+	}
+	
+	/**
 	 * Getter method for the GroceryItem's elasticity
-	 * @return elasticity
+	 * @return String elasticity
 	 */
 	public String getElasticity()
 	{
@@ -73,7 +82,7 @@ public class GroceryItem
 	
 	/**
 	 * Getter method for whether the GroceryItem is breakable
-	 * @return breakable
+	 * @return boolean breakable
 	 */
 	public boolean isBreakable() 
 	{
@@ -82,16 +91,16 @@ public class GroceryItem
 	
 	/**
 	 * Getter method for whether the GroceryItem is perishable
-	 * @return perishable
+	 * @return boolean perishable
 	 */
 	public boolean isPerishable() 
 	{
-		return this.isPerishable();
+		return this.perishable;
 	}
 	
 	/**
 	 * Returns a String representing this GroceryItem object
-	 * @return string
+	 * @return String string
 	 */
 	public String toString()
 	{
