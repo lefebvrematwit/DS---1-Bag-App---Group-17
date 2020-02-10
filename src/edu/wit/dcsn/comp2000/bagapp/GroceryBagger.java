@@ -16,7 +16,7 @@ public class GroceryBagger
 {
 	
 	/**
-	 * Parses GroceryItem objects from the groceries.txt file located in the data directory of this project
+	 * Parses GroceryItem objects from the .txt file located at param path
 	 * @author Rodney Chan
 	 * @return List of GroceryItem objects
 	 * @throws FileNotFoundException - if the file is not present
@@ -25,7 +25,7 @@ public class GroceryBagger
 	{
 		System.out.printf("--- STARTING GROCERY PARSING OF %s ---%n", path);
 		
-		// Create a list to store the grocery item objects parsed from the groceries.txt file
+		// Create a list to store the grocery item objects parsed from the .txt file
 		final List<GroceryItem> groceries = new ArrayList<>();
 		
 		// Create Scanner object to read the text file
